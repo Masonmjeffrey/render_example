@@ -19,3 +19,6 @@ Next we need to create a new web service using Render.
 From the quickstart tutorial page, you should see a link in the top right corner to the Dashboard.
 <img src="images/render_dash_link.png">
 Once you've navigated to the render dashboard an icon to create a new service should appear up top. This will open a drop down with links to open a static site, web service, Postgres database and much more. For now we are going to create a <b>Web Service</b>
+You'll be brought to a screen to enter the name the repository you forked to
+<img src="images/render_git_link.png">
+Next create a name for your web service on the next page and you'll be good to go!
