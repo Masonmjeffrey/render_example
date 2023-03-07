@@ -62,4 +62,5 @@ conn = psycopg2.connect("your_db_url_here")
 conn.close()
 ```
 <li>Finally in this route we need to return something to show that our database connection is working properly. Return a string informing the user that the connection works properly.
-<li>Push the changes to your repository to trigger a new deployment of your flask app.
+<li>Push the changes to your repository to trigger a new deployment of your flask app. (Note : If at any point you aren't seeing the new version deploy navigate within the dashboard to your web service, select manual deploy and deploy the latest commit)
+<li>Once the new build of your app has successfully deployed, navigate to the db_test route you just created and you should see your
