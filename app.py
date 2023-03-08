@@ -59,3 +59,15 @@ def dropping():
     conn.commit()
     conn.close()
     return "Basketball Table Successfully Dropped"
+
+
+@app.route('/db_select')
+def dropping():
+    conn = psycopg2.connect("postgres://render_example_ocz5_user:IjKRb0gXpxjYwIJERcJnWVlUhtrjN3vH@dpg-cg3sfmvdvk4hn479pq70-a/render_example_ocz5")
+    cur = conn.cursor()
+    cur.execute('''
+        SELECT * FROM Basketball;
+        ''')
+    records = cur.fetchall()
+    conn.close()
+    return records
