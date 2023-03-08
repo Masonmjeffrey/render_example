@@ -48,9 +48,12 @@ psycopg2-binary==2.9.5
 ```
 <li>Next we need to spin up an instance of a Postgres database, fortunately for us Render allows us to do this for free.
 <li>Similar to how we created a web service go to the dashboard in Render, select the new icon and this time choose PostgreSQL
+
 <img src="images/postgres_render.png">
+
 <li>Now give your database a name and press create
 <li>You'll be brought to a screen with information about the database you created and if you look under the connect tab you'll be given a url that'll link directly to your new database within other Render services
+
 <img src="images/db_info_render.png">
 <li>Next we need to connect to this newly created database within our flask app.
 <li>Within the app.py file of the quickstart flask app add the following line to the top of the file.
@@ -73,6 +76,7 @@ conn.close()
 <li>Finally in this route we need to return something to show that our database connection is working properly. Return a string informing the user that the connection works properly.
 <li>Push the changes to your repository to trigger a new deployment of your flask app. (Note : If at any point you aren't seeing the new version deploy navigate within the dashboard to your web service, select manual deploy and deploy the latest commit)
 <li>Once the new build of your app has successfully deployed, navigate to the db_test route you just created and you should see your connection string returned.
+
 <img src="images/connection_render.png">
 
 ***
@@ -146,6 +150,7 @@ records = cur.fetchall()
 <img src="images/table_render.png">
 
 ***
+
 ### db_drop
 
 <li>For our final route, I'd like you to create a route that drops the Basketball table from the database. The following SQL should help you out.
@@ -156,6 +161,7 @@ DROP TABLE Basketball;
 <li> After that return the string "Basketball Table Dropped"
 
 ***
+
 # Final Product
 
 <li> After you've completed your app you should have a flask app on Render with 6 total working routes.
