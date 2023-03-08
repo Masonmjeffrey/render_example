@@ -11,10 +11,10 @@ There are two parts to this lab
 For this portion of the lab we will be following the Flask quickstart tutorial available on Render.
 <li>All of the information that you will need can be found on this link https://render.com/docs/deploy-flask
 but we will also walk through how to complete this portion step by step.
-<br>
+<li>You'll need to create an account on Render.com for this lab.
 <li>To begin fork the repo located at https://github.com/render-examples/flask-hello-world
 This contains the starting files needed to create a basic flask app.
-<br>
+
 <li>Next we need to create a new web service using Render.
 From the quickstart tutorial page, you should see a link in the top right corner to the Dashboard.
 <img src="images/render_dash_link.png">
@@ -30,6 +30,7 @@ From the quickstart tutorial page, you should see a link in the top right corner
 
 ## Creating a Database on Render
 <li> For the next portion of this lab our goal is to "spin up" an instance of a Postgres database, and create routes to populate it with data, query data, and delete data.
+<li>Using services like Render, AWS, Heroku and more we can "spin up" an instance of a database or web service. When we spin up this instance we are essentially starting a virtual machine dedicated to running the selected service. 
 <li> You'll be spinning up a database on render and creating the following table. I'll provide all of the necessary SQL and you'll be creating the necessary routes to perform all of the functions needed.
 
 |First|Last|City|Name|Number|
@@ -102,7 +103,7 @@ conn.commit()
 <li>Finally close the connection and then return a string to show that the table Basketball was successfully created.
 <li>Test that your table was successfuly created by going to your db_create route and seeing if your string was returned. If you have any error messages you can check the log sections of your web service and postgres database but if everything goes well you should see something like this
 <img src="images/create_render.png">
-
+<li>Note everytime that we visit one of these routes, the SQL statements provided will be executed. So be careful when calling a route multiple times as it may lead to unexpected results
 ***
 
 # Required Routes
@@ -138,7 +139,9 @@ SELECT * FROM Basketball;
 ```
 records = cur.fetchall()
 ```
-<li> I'd then like you to take the information from records, format that as a table using HTML and return that table of information
+<li> I'd then like you to take the information from records, format that as a table using HTML and return that table of information.
+<li> To help create your table think of records as a list of tuples. You can then iterate over that list, and do an inner for loop inside of each tuple to get the information. Then by dynamically building your table using HTML tags and appending to one long "response string" you should be able to create a table similar to the one below.
+<img src="images/table_render.png">
 
 ***
 ### db_drop
@@ -161,3 +164,16 @@ DROP TABLE Basketball;
         <li> db_insert Which inserts the provided information into the Basketball table </li>
         <li> db_select Which queries the data from Basketball and returns a formatted table of information </li>
         <li> db_drop Which drops the Basketball table </li>
+    </ul>
+
+***
+
+# Grading Breakdown
+<li> Points for this assignment are given for each route that succesffuly performs as described on your Render Flask app with the following point values. Partial points will not be given on a per route basis for incomplete routes.
+    <ul>
+        <li> Route from the flask quickstart guide, the Hello World Route (30 points) </li>
+        <li> db_test, testing the connection to the PostgreSQL database instance (15 points)</li>
+        <li> db_create, creating the Basketball table (10 points) </li>
+        <li> db_insert, populating the Basketball table with the provided information (15 points) </li>
+        <li> db_select, Querying all of the information from the Basketball table AND returning a table of information (20 points)</li>
+        <li> db_drop, Dropping the Basketball table (10 points)</li>
