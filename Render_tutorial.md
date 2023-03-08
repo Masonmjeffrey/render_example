@@ -25,7 +25,9 @@ From the quickstart tutorial page, you should see a link in the top right corner
 <li>Your flask app will be deployed to your_app_name.onrender.com 
 <li>Whenever you push a change to your repo you'll have a version of your app automatically deployed to that render link.
 <li>Note that deploying and reploying to render is not very fast, so whenever you make a change be sure to double check that your code is correct.
+
 ***
+
 ## Creating a Database on Render
 <li> For the next portion of this lab our goal is to "spin up" an instance of a Postgres database, and create routes to populate it with data, query data, and delete data.
 <li> You'll be spinning up a database on render and creating the following table. I'll provide all of the necessary SQL and you'll be creating the necessary routes to perform all of the functions needed.
