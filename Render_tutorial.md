@@ -98,3 +98,64 @@ cur.execute('''
 conn.commit()
 ```
 <li>Finally close the connection and then return a string to show that the table Basketball was successfully created.
+<li>Test that your table was successfuly created by going to your db_create route and seeing if your string was returned. If you have any error messages you can check the log sections of your web service and postgres database but if everything goes well you should see something like this
+<img src="images/create_render.png">
+
+***
+
+# Required Routes
+
+<li> I'd like you to create a few additional routes for this database. I'll provide the SQL but I'd like you to create routes to populate the table, query from the table, and drop from the table
+<li> Be sure to use conn.commit(), and conn.close() to commit your changes and close your connection when you are finished with each route
+
+***
+
+### db_insert
+<li> This route will insert data into the Basketball table that you've created. Following is the SQL for you to use.
+
+```
+INSERT INTO Basketball (First, Last, City, Name, Number)
+Values
+('Jayson', 'Tatum', 'Boston', 'Celtics', 0),
+('Stephen', 'Curry', 'San Francisco', 'Warriors', 30),
+('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
+('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
+```
+<li> Return the string "Basketball Table Populated"
+
+***
+
+### db_select
+<li> This route will query all of the data from the database, and return the information in a table. Following is the SQL for you to use.
+
+```
+SELECT * FROM Basketball;
+```
+<li> After your query you'll need to call the fetchall method on your cursor in order to capture the results of your query something like
+
+```
+records = cur.fetchall()
+```
+<li> I'd then like you to take the information from records, format that as a table using HTML and return that table of information
+
+***
+### db_drop
+
+<li>For our final route, I'd like you to create a route that drops the Basketball table from the database. The following SQL should help you out.
+
+```
+DROP TABLE Basketball;
+```
+<li> After that return the string "Basketball Table Dropped"
+
+***
+# Final Product
+
+<li> After you've completed your app you should have a flask app on Render with 6 total working routes.
+    <ul>
+        <li>/ Our initial Hello World route</li>
+        <li> db_test Which tests the database connection </li>
+        <li> db_create Which creates the Basketball table </li>
+        <li> db_insert Which inserts the provided information into the Basketball table </li>
+        <li> db_select Which queries the data from Basketball and returns a formatted table of information </li>
+        <li> db_drop Which drops the Basketball table </li>
