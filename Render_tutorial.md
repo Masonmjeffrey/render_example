@@ -199,6 +199,12 @@ DROP TABLE Basketball;
 <img src="images/db_drop_route.png">
 ***
 
+# Helpful Hints
+<li>If you encounter errors in either your database or in your flask app itself you can check the logs section of either in your dashboard to see if their are any errors.
+<li>If you find that your app isn't automatically redeploying check that the repository is properly linked. If you still encounter errors you can use the manual deploy button on the flask app render page to redeploy your app.
+
+
+***
 # Final Product
 
 <li> After you've completed your app you should have a flask app on Render with 6 total working routes.
