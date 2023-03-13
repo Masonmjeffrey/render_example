@@ -17,16 +17,21 @@ This contains the starting files needed to create a basic flask app.
 
 <li>Next we need to create a new web service using Render.
 From the quickstart tutorial page, you should see a link in the top right corner to the Dashboard.
+
 <img src="images/render_dash_link.png">
+
 <li>Once you've navigated to the render dashboard an icon to create a new service should appear up top. This will open a drop down with links to open a static site, web service, Postgres database and much more. For now we are going to create a <b>Web Service</b>.
 <li>You'll be brought to a screen to enter the name the repository you forked.
+
 <img src="images/render_git_link.png">
+
 <li>Next create a name for your web service on the next page, be sure that you've selected the free tier of services and you'll be good to go!
 <li>Your flask app will be deployed to your_app_name.onrender.com 
 <li>Whenever you push a change to your repo you'll have a version of your app automatically deployed to that render link.
 <li>Note that deploying and reploying to render is not very fast, so whenever you make a change be sure to double check that your code is correct.
 
 ***
+
 
 ## Creating a Database on Render
 <li> For the next portion of this lab our goal is to "spin up" an instance of a Postgres database, and create routes to populate it with data, query data, and delete data.
@@ -73,7 +78,15 @@ conn = psycopg2.connect("your_db_url_here")
 ```
 conn.close()
 ```
+
+
 <li>Finally in this route we need to return something to show that our database connection is working properly. Return a string informing the user that the connection works properly.
+
+<li>Once your db_test route is complete it should look like the following (with your database url in the connection).
+
+<img src="images/db_test_route.png">
+
+
 <li>Push the changes to your repository to trigger a new deployment of your flask app. (Note : If at any point you aren't seeing the new version deploy navigate within the dashboard to your web service, select manual deploy and deploy the latest commit)
 <li>Once the new build of your app has successfully deployed, navigate to the db_test route you just created and you should see your connection string returned.
 
@@ -81,7 +94,11 @@ conn.close()
 
 ***
 
+### db_create
+
+
 <li>Great, we were able to successfully connect to our database, now I'm going to go over the basics of executing SQL statements using psycopg2 and then get into the list of routes you'll need to create along with the SQL for each route.
+
 <li>Create a new route called db_create, here we will be creating a table titled Basketball. Begin this route similar to how we began the db_test route by connecting to our database.
 <li>Next we are going to create a connection cursor that will allow us to execute SQL statements from inside of our route. Use the following code to create a cursor.
 
@@ -108,7 +125,13 @@ conn.commit()
 ```
 <li>Finally close the connection and then return a string to show that the table Basketball was successfully created.
 <li>Test that your table was successfuly created by going to your db_create route and seeing if your string was returned. If you have any error messages you can check the log sections of your web service and postgres database but if everything goes well you should see something like this
+
 <img src="images/create_render.png">
+
+<li>Once your db_create route is complete it should look something like this
+
+<img src="images/db_create_route.png">
+
 <li>Note everytime that we visit one of these routes, the SQL statements provided will be executed. So be careful when calling a route multiple times as it may lead to unexpected results
 ***
 
@@ -131,6 +154,10 @@ Values
 ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
 ```
 <li> Return the string "Basketball Table Populated"
+<li> Once your db_insert route is complete it should look something like this
+
+<img src="images/db_insert_route.png">
+
 
 ***
 
@@ -148,6 +175,9 @@ records = cur.fetchall()
 <li> I'd then like you to take the information from records, format that as a table using HTML and return that table of information.
 <li> To help create your table think of records as a list of tuples. You can then iterate over that list, and do an inner for loop inside of each tuple to get the information. Then by dynamically building your table using HTML tags and appending to one long "response string" you should be able to create a table similar to the one below.
 <img src="images/table_render.png">
+<li>Once your db_select route is complete it should look something like this
+<img src="images/db_select_route.png">
+
 
 ***
 
@@ -159,7 +189,9 @@ records = cur.fetchall()
 DROP TABLE Basketball;
 ```
 <li> After that return the string "Basketball Table Dropped"
+<li> Once your db_drop route is completed it should look something like this
 
+<img src="images/db_drop_route.png">
 ***
 
 # Final Product
