@@ -12,8 +12,12 @@ For this portion of the lab we will be following the Flask quickstart tutorial a
 <li>All of the information that you will need can be found on this link https://render.com/docs/deploy-flask
 but we will also walk through how to complete this portion step by step.
 <li>You'll need to create an account on Render.com for this lab.
-<li>To begin fork the repo located at https://github.com/render-examples/flask-hello-world
-This contains the starting files needed to create a basic flask app.
+<li>To begin fork the repo located at https://github.com/render-examples/flask-hello-world, do so by clicking for and create a new forked repository.
+
+<img src="images/fork.png">
+
+<li>For the second portion of the lab you'll need to clone this locally to edit, app.py. You can either do this now or later.
+<li>This contains the starting files needed to create a basic flask app.
 
 <li>Next we need to create a new web service using Render.
 From the quickstart tutorial page, you should see a link in the top right corner to the Dashboard.
@@ -46,18 +50,19 @@ From the quickstart tutorial page, you should see a link in the top right corner
 |Kawhi|Leonard|Los Angeles|Clippers|2|
 ***
 <li>We will be using the <b>psycopg2</b> module which is the most popular PostgreSQL database adapter for python.
-<li>First we will need to need to make sure that we include the library in our requirements file, so include the following line to the requirements file
+<li>For this portion of the lab be sure that you've cloned the repository that you forked earlier locally, this will allow you to push changes and create new routes in your flask app.
+<li>First we will need to need to make sure that we include the library in our requirements file, so include the following line to the requirements file.
 
 ```
 psycopg2-binary==2.9.5
 ```
 <li>Next we need to spin up an instance of a Postgres database, fortunately for us Render allows us to do this for free.
-<li>Similar to how we created a web service go to the dashboard in Render, select the new icon and this time choose PostgreSQL
+<li>Similar to how we created a web service go to the dashboard in Render, select the new icon and this time choose PostgreSQL.
 
 <img src="images/postgres_render.png">
 
-<li>Now give your database a name and press create
-<li>You'll be brought to a screen with information about the database you created and if you look under the connect tab you'll be given a url that'll link directly to your new database within other Render services
+<li>Now give your database a name and press create.
+<li>You'll be brought to a screen with information about the database you created and if you look under the connect tab you'll be given a url that'll link directly to your new database within other Render services.
 
 <img src="images/db_info_render.png">
 <li>Next we need to connect to this newly created database within our flask app.
@@ -68,12 +73,12 @@ import psycopg2
 ```
 
 <li> Next create a new route called db_test.
-<li>Inside of that route we are going to connect to the database, do so by passing the internal database url to the following line
+<li>Inside of that route we are going to connect to the database, do so by passing the internal database url to the following line.
 
 ```
 conn = psycopg2.connect("your_db_url_here")
 ```
-<li>conn is now a variable that represents the connection to our database. Its important to remember to close the connection whenever we are done with it. So the last line of our route should be 
+<li>conn is now a variable that represents the connection to our database. Its important to remember to close the connection whenever we are done with it. So the last line of our route should be
 
 ```
 conn.close()
@@ -87,7 +92,7 @@ conn.close()
 <img src="images/db_test_route.png">
 
 
-<li>Push the changes to your repository to trigger a new deployment of your flask app. (Note : If at any point you aren't seeing the new version deploy navigate within the dashboard to your web service, select manual deploy and deploy the latest commit)
+<li>Push the changes to your repository to trigger a new deployment of your flask app. (Note : If at any point you aren't seeing the new version deploy navigate within the dashboard to your web service, select manual deploy and deploy the latest commit).
 <li>Once the new build of your app has successfully deployed, navigate to the db_test route you just created and you should see your connection string returned.
 
 <img src="images/connection_render.png">
@@ -124,21 +129,21 @@ cur.execute('''
 conn.commit()
 ```
 <li>Finally close the connection and then return a string to show that the table Basketball was successfully created.
-<li>Test that your table was successfuly created by going to your db_create route and seeing if your string was returned. If you have any error messages you can check the log sections of your web service and postgres database but if everything goes well you should see something like this
+<li>Test that your table was successfuly created by going to your db_create route and seeing if your string was returned. If you have any error messages you can check the log sections of your web service and postgres database but if everything goes well you should see something like this.
 
 <img src="images/create_render.png">
 
-<li>Once your db_create route is complete it should look something like this
+<li>Once your db_create route is complete it should look something like this.
 
 <img src="images/db_create_route.png">
 
-<li>Note everytime that we visit one of these routes, the SQL statements provided will be executed. So be careful when calling a route multiple times as it may lead to unexpected results
+<li>Note everytime that we visit one of these routes, the SQL statements provided will be executed. So be careful when calling a route multiple times as it may lead to unexpected results.
 ***
 
 # Required Routes
 
-<li> I'd like you to create a few additional routes for this database. I'll provide the SQL but I'd like you to create routes to populate the table, query from the table, and drop from the table
-<li> Be sure to use conn.commit(), and conn.close() to commit your changes and close your connection when you are finished with each route
+<li> I'd like you to create a few additional routes for this database. I'll provide the SQL but I'd like you to create routes to populate the table, query from the table, and drop from the table.
+<li> Be sure to use conn.commit(), and conn.close() to commit your changes and close your connection when you are finished with each route.
 
 ***
 
@@ -154,7 +159,7 @@ Values
 ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
 ```
 <li> Return the string "Basketball Table Populated"
-<li> Once your db_insert route is complete it should look something like this
+<li> Once your db_insert route is complete it should look something like this.
 
 <img src="images/db_insert_route.png">
 
@@ -175,7 +180,7 @@ records = cur.fetchall()
 <li> I'd then like you to take the information from records, format that as a table using HTML and return that table of information.
 <li> To help create your table think of records as a list of tuples. You can then iterate over that list, and do an inner for loop inside of each tuple to get the information. Then by dynamically building your table using HTML tags and appending to one long "response string" you should be able to create a table similar to the one below.
 <img src="images/table_render.png">
-<li>Once your db_select route is complete it should look something like this
+<li>Once your db_select route is complete it should look something like this.
 <img src="images/db_select_route.png">
 
 
