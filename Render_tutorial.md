@@ -205,6 +205,17 @@ DROP TABLE Basketball;
         <li> db_select Which queries the data from Basketball and returns a formatted table of information </li>
         <li> db_drop Which drops the Basketball table </li>
     </ul>
+<li> Before submitting your final product call the db_drop route to ensure that the database used for your render app is empty, so that I can call your routes to test it.
+***
+
+# Deliverables
+
+<li>For this lab I'd like you to submit the following items as deliverables
+    <ul>
+        <li> A link to your github repository containing your app.py file with the required routes</li>
+        <li> A link to your flask app on render</li>
+        <li> An empty database (db_drop was the last route called)</li>
+    </ul>
 
 ***
 
