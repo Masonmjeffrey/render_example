@@ -22,6 +22,7 @@ but we will also walk through how to complete this portion step by step.
 <li>I'd like you to make some small changes to this app.py file, namely I'd like you to include some of your information on the landing page.
 <li>On this page I'd like you to replace the string returned by the hello_world route. Instead of returning "Hello", I'd instead like you to return three rows of information. I'd like to see your Name, the semester code (FA 23 for fall 2023), and then your github ID. When your finished it should look something like this
     
+    
 <img src="images/landing_page.png">
     
     
