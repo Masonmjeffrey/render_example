@@ -6,17 +6,21 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello'
+    return '''
+        Name: Your Name \n
+        Semester: SP 99 \n
+        Github ID: Your_ID
+    '''
 
 @app.route('/db_test')
 def testing():
-    conn = psycopg2.connect("postgres://mason_render_example_user:r3P1ua6zJ4Fr9ktpUexYKsa8CFFj6Q56@dpg-cg7kt8o2qv28u2u3luh0-a/mason_render_example")
+    conn = psycopg2.connect("postgres://render_example_ocz5_user:IjKRb0gXpxjYwIJERcJnWVlUhtrjN3vH@dpg-cg3sfmvdvk4hn479pq70-a/render_example_ocz5")
     conn.close()
     return "Database Connection Successful"
 
 @app.route('/db_create')
 def creating():
-    conn = psycopg2.connect("postgres://mason_render_example_user:r3P1ua6zJ4Fr9ktpUexYKsa8CFFj6Q56@dpg-cg7kt8o2qv28u2u3luh0-a/mason_render_example")
+    conn = psycopg2.connect("postgres://render_example_ocz5_user:IjKRb0gXpxjYwIJERcJnWVlUhtrjN3vH@dpg-cg3sfmvdvk4hn479pq70-a/render_example_ocz5")
     cur = conn.cursor()
     cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball (
@@ -34,7 +38,7 @@ def creating():
 
 @app.route('/db_insert')
 def inserting():
-    conn = psycopg2.connect("postgres://mason_render_example_user:r3P1ua6zJ4Fr9ktpUexYKsa8CFFj6Q56@dpg-cg7kt8o2qv28u2u3luh0-a/mason_render_example")
+    conn = psycopg2.connect("postgres://render_example_ocz5_user:IjKRb0gXpxjYwIJERcJnWVlUhtrjN3vH@dpg-cg3sfmvdvk4hn479pq70-a/render_example_ocz5")
     cur = conn.cursor()
     cur.execute('''
         INSERT INTO Basketball (First, Last, City, Name, Number)
@@ -51,7 +55,7 @@ def inserting():
 
 @app.route('/db_drop')
 def dropping():
-    conn = psycopg2.connect("postgres://mason_render_example_user:r3P1ua6zJ4Fr9ktpUexYKsa8CFFj6Q56@dpg-cg7kt8o2qv28u2u3luh0-a/mason_render_example")
+    conn = psycopg2.connect("postgres://render_example_ocz5_user:IjKRb0gXpxjYwIJERcJnWVlUhtrjN3vH@dpg-cg3sfmvdvk4hn479pq70-a/render_example_ocz5")
     cur = conn.cursor()
     cur.execute('''
         DROP TABLE Basketball;
@@ -63,7 +67,7 @@ def dropping():
 
 @app.route('/db_select')
 def selecting():
-    conn = psycopg2.connect("postgres://mason_render_example_user:r3P1ua6zJ4Fr9ktpUexYKsa8CFFj6Q56@dpg-cg7kt8o2qv28u2u3luh0-a/mason_render_example")
+    conn = psycopg2.connect("postgres://render_example_ocz5_user:IjKRb0gXpxjYwIJERcJnWVlUhtrjN3vH@dpg-cg3sfmvdvk4hn479pq70-a/render_example_ocz5")
     cur = conn.cursor()
     cur.execute('''
         SELECT * FROM Basketball;

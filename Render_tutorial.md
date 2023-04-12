@@ -16,7 +16,9 @@ but we will also walk through how to complete this portion step by step.
 
 <img src="images/fork.png">
 
-<li>For the second portion of the lab you'll need to clone this locally to edit, app.py. You can either do this now or later.
+<li>For the second portion of the lab you'll need to clone this locally to edit, app.py.
+<li>I'd like you to make some small changes to this app.py file, namely I'd like you to include some of your information on the landing page.
+<li>On this page I'd like you to replace the string returned by the hello_world route. Instead of returning "Hello", I'd instead like you to return three rows of information. I'd like to see your Name, the semester code (FA 23 for fall 2023), and then your github ID. When your finished 
 <li>This contains the starting files needed to create a basic flask app.
 
 <li>Next we need to create a new web service using Render.
