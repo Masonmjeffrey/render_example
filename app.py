@@ -7,8 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     ret_str = '''
-        Name: Your Name \n
-        Semester: SP 99 \n
+        Name: Your Name </br>
+        Semester: SP 99 </br>
         Github ID: Your_ID
         '''
     return ret_str
