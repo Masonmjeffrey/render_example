@@ -6,11 +6,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return '''
+    ret_str = '''
         Name: Your Name \n
         Semester: SP 99 \n
         Github ID: Your_ID
-    '''
+        '''
+    return ret_str
 
 @app.route('/db_test')
 def testing():
